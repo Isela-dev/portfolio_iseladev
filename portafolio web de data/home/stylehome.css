@@ -1,0 +1,287 @@
+/* Reseteo y base de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Aboreto', serif;
+}
+
+body {
+    background: #F1EAEA;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Aboreto', serif;
+    color: #161F37;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Estilos para el encabezado y menú */
+header {
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #161F37;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-item a:hover {
+    color: #C17CCF;
+}
+
+.menu-item a:hover::after {
+    content: "★";  
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #C17CCF;
+    animation: pop 1s ease-in-out;
+}
+
+/* Icono de menú hamburguesa (sólo para móviles) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #161F37;
+    border-radius: 5px;
+}
+
+/* Estilos del menú en móvil */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background-color: #F1EAEA;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .menu-item a {
+        font-size: 1.2rem;
+    }
+
+    /* Mostrar el icono de menú hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Cuando el menú se activa */
+    .menu.active {
+        display: flex;
+    }
+}
+
+
+
+
+/* Estilos del header */
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;  /* Cambiado para alinear los elementos en fila */
+    gap: 30px;  /* Espaciado entre el texto y la mascota */
+    z-index: 1;
+    width: 100%;
+    padding: 120px;
+}
+
+/* Contenedor de texto e imágenes */
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Texto de la introducción */
+.intro-text {
+    color: #161F37;
+    font-size: 2.5rem;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeIn 5s forwards;
+}
+
+/* Animación de fadeIn para el texto */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación Glitch para el texto "Hi, my name is" */
+.glitch {
+    position: relative;
+    font-size: 2.5rem;
+    color: #161F37;
+    animation: glitch-animation 2s infinite linear, fadeIn 2s forwards;
+}
+
+/* Animación Glitch */
+@keyframes glitch-animation {
+    0% {
+        text-shadow: 1px 0 red, -1px 0 blue;
+        transform: translate(1px, 1px);
+    }
+    20% {
+        text-shadow: -1px 0 blue, 1px 0 red;
+        transform: translate(-1px, -1px);
+    }
+    40% {
+        text-shadow: 2px 0 green, -2px 0 yellow;
+        transform: translate(2px, 2px);
+    }
+    60% {
+        text-shadow: -2px 0 yellow, 2px 0 green;
+        transform: translate(-2px, -2px);
+    }
+    80% {
+        text-shadow: 1px 0 red, -1px 0 blue;
+        transform: translate(1px, 1px);
+    }
+    100% {
+        text-shadow: -1px 0 blue, 1px 0 red;
+        transform: translate(-1px, -1px);
+    }
+}
+
+/* Logo */
+#logo {
+    width: 350px;
+    height: auto;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInLogo 3s forwards;
+}
+
+/* Animación de fadeIn para el logo */
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mascota (Zorro Ártico) */
+.mascot-container {
+    margin-top: 20px;
+}
+
+.mascot {
+    width: 250px;
+    height: auto;
+    opacity: 0;
+    animation: fadeInMascot 3s forwards;
+}
+
+/* Animación para la mascota */
+@keyframes fadeInMascot {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Media Query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    /* Ajuste en el tamaño de texto */
+    .intro-text {
+        font-size: 1.8rem;  /* Reducir tamaño del texto */
+    }
+
+    /* Ajuste en el logo */
+    #logo {
+        width: 200px;  /* Hacer el logo un poco más pequeño */
+    }
+
+    /* Ajuste en la mascota */
+    .mascot {
+        width: 120px;  /* Reducir tamaño de la mascota */
+    }
+
+    /* Ajustar el espaciado entre los elementos */
+    .header-container {
+        flex-direction: column;  /* Cambiar de fila a columna */
+        gap: 15px;  /* Reducir el espaciado entre elementos */
+        padding: 10px;
+    }
+
+    /* Ajustar el tamaño de la imagen de la mascota */
+    .mascot-container {
+        margin-top: 10px;
+    }
+}
+
+/* Media Query para pantallas más pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+    /* Reducir aún más el tamaño del texto */
+    .intro-text {
+        font-size: 1.5rem;
+    }
+
+    /* Ajustar el tamaño del logo en pantallas muy pequeñas */
+    #logo {
+        width: 180px;
+    }
+
+    /* Ajustar el tamaño de la mascota */
+    .mascot {
+        width: 100px;
+    }
+
+    /* Ajustar el contenedor del header */
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Ajustar márgenes de la mascota */
+    .mascot-container {
+        margin-top: 5px;
+    }
+}

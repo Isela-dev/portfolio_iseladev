@@ -1,0 +1,92 @@
+/* Reseteo de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Establecer el fondo de la página */
+body {
+    background-color: #161F37; /* Fondo oscuro */
+    overflow: hidden; /* Ocultar el contenido que sobresale */
+    height: 100vh; /* Aseguramos que el body ocupe toda la pantalla */
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    font-family: 'Aboreto', serif; /* Aplicamos la fuente Aboreto para todo el cuerpo */
+}
+
+/* Estilo del botón */
+button {
+    background-color: #5C2079; /* Fondo del botón */
+    color: white;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 100; /* Asegurar que el botón esté por encima de los meteoritos */
+    font-family: 'Aboreto', serif; /* Aplicar fuente Aboreto */
+}
+
+button:hover {
+    background-color: #C17CCF; /* Efecto hover en el botón */
+}
+
+/* Círculos de meteoritos */
+.circle {
+    position: absolute;
+    top: -100px; /* Comienza fuera de la vista */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(92, 32, 121, 0.8), rgba(92, 32, 121, 0.4)); /* Degradado de color #5C2079 */
+    opacity: 0;
+    animation: fall 5s linear infinite; /* Efecto de caída con animación */
+}
+
+/* Animación de meteoritos cayendo */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px); /* Comienza fuera de la pantalla */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* Termina en la parte inferior de la pantalla */
+        opacity: 0;
+    }
+}
+
+/* Adaptabilidad para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Aseguramos que el botón sea más pequeño en pantallas pequeñas */
+    button {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+
+    /* Hacemos que los meteoritos sean más grandes para visualización móvil */
+    .circle {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 480px) {
+    /* Reducimos más el tamaño del botón en dispositivos móviles muy pequeños */
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    /* Ajustamos el tamaño de los meteoritos */
+    .circle {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+

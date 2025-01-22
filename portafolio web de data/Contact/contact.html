@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./contactstyle.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav>
+        <div class="menu-toggle" id="menuToggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="menu">
+            <li class="menu-item"><a href="../index.html">Home</a></li>
+            <li class="menu-item"><a href="../About/aboutme.html">About</a></li>
+            <li class="menu-item"><a href="../PORTAFOLIO/portafolio.html">Portfolio</a></li>
+            <li class="menu-item"><a href="../Contact/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor de contacto -->
+    <div class="contact-container">
+        <h1>Contact Me</h1>
+        <form action="#" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

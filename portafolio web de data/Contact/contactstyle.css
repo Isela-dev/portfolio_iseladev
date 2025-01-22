@@ -1,0 +1,227 @@
+/* Reset de márgenes y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Aboreto', sans-serif;
+}
+
+/* Fondo y diseño del cuerpo de la página */
+body {
+    background-color: #C5FF41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Aboreto', sans-serif; /* Aplico la fuente Aboreto globalmente */
+    flex-direction: column;
+}
+
+/* Menú de navegación */
+nav {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #161F37;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Aboreto', sans-serif;
+}
+
+.menu-item a:hover {
+    color: #C17CCF;
+}
+
+.menu-item a:hover::after {
+    content: "★";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #C17CCF;
+    animation: pop 1s ease-in-out;
+}
+
+/* Icono del menú hamburguesa (solo en móviles) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #161F37;
+    border-radius: 5px;
+}
+
+/* Estilos del menú en móvil */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background-color: #F1EAEA;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .menu-item a {
+        font-size: 1.2rem;
+    }
+
+    /* Mostrar el icono de menú hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Cuando el menú se activa */
+    .menu.active {
+        display: flex;
+    }
+}
+
+/* Estilos de la sección de contacto */
+.contact-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    background-color: #A2F56E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #161F37;
+    font-family: 'Aboreto', sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 1rem;
+    color: #161F37;
+    font-family: 'Aboreto', sans-serif;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #161F37;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    font-family: 'Aboreto', sans-serif;
+}
+
+input[type="text"], input[type="email"] {
+    height: 40px;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    background-color: #161F37;
+    color: #C5FF41;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    font-family: 'Aboreto', sans-serif;
+}
+
+button:hover {
+    background-color: #C5FF41;
+    color: #161F37;
+}
+
+/* Animación de las chispas alrededor del formulario */
+@keyframes sparkles {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.contact-container::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed #161F37;
+    border-radius: 10px;
+    animation: sparkles 2s infinite linear;
+    pointer-events: none;
+}
+
+/* Efecto de chispas */
+@keyframes sparkle {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+.contact-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+    pointer-events: none;
+    z-index: -1;
+}

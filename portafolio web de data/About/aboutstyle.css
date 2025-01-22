@@ -1,0 +1,351 @@
+/* Reseteo y base de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Aboreto', serif;
+}
+
+/* Estilo global */
+body {
+    background-color: #F1EAEA;
+    font-family: 'Aboreto', serif;
+    color: #161F37;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menú de navegación */
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem 0;
+    background-color: #F1EAEA;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #161F37;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-item a:hover {
+    color: #C17CCF;
+}
+
+.menu-item a:hover::after {
+    content: "★";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #C17CCF;
+    animation: pop 1s ease-in-out;
+}
+
+
+/* Menú hamburguesa */
+.menu-toggle {
+    display: none; /* Ocultar por defecto */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #161F37;
+    border-radius: 5px;
+}
+
+/* Menú en versión móvil */
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #161F37;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-item a:hover {
+    color: #C17CCF;
+}
+
+/* Estilos del menú en móvil */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none; /* Ocultar el menú por defecto */
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background-color: #F1EAEA;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .menu-item a {
+        font-size: 1.2rem;
+    }
+
+    /* Mostrar el icono del menú hamburguesa en pantallas pequeñas */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Menú desplegado */
+    .menu.active {
+        display: flex;
+    }
+}
+
+/* Animación de "pop" para el hover */
+@keyframes pop {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Icono de menú hamburguesa (sólo para móviles) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #161F37;
+    border-radius: 5px;
+}
+
+/* Estilos del menú en móvil */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background-color: #F1EAEA;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .menu-item a {
+        font-size: 1.2rem;
+    }
+
+    /* Mostrar el icono de menú hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Cuando el menú se activa */
+    .menu.active {
+        display: flex;
+    }
+}
+
+/* Estilos para el contenido de la sección ABOUT ME */
+.about-me {
+    display: flex;
+    justify-content: space-between;
+    padding: 15rem 10%;
+    position: relative;
+}
+
+.about-text {
+    max-width: 50%;
+}
+
+.about-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #161F37;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.about-description {
+    font-size: 1.2rem;
+    color: #161F37;
+    margin-top: 20px;
+}
+
+/* Animación para el título ABOUT ME */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Foto de perfil */
+.about-photo {
+    position: relative;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Estrellas */
+.star {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.star-top {
+    top: 20px;
+    right: 20px;
+}
+
+.star-bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Adaptabilidad para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .about-me {
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 5%;
+    }
+
+    .about-text {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .star {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+/* Foto de perfil */
+.about-photo {
+    position: relative;
+    animation: glitch 1.5s infinite linear alternate-reverse;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    animation: glitchEffect 1.5s infinite linear alternate-reverse; /* Añadimos la animación aquí */
+}
+
+/* Animación Glitch */
+@keyframes glitch {
+    0% {
+        transform: skewX(0deg);
+    }
+    10% {
+        transform: skewX(-10deg);
+    }
+    20% {
+        transform: skewX(10deg);
+    }
+    30% {
+        transform: skewX(0deg);
+    }
+    40% {
+        transform: skewX(-5deg);
+    }
+    50% {
+        transform: skewX(5deg);
+    }
+    60% {
+        transform: skewX(0deg);
+    }
+    100% {
+        transform: skewX(0deg);
+    }
+}
+
+/* Efecto de color y distorsión */
+@keyframes glitchEffect {
+    0% {
+        filter: brightness(1) contrast(1);
+        transform: scale(1);
+    }
+    25% {
+        filter: brightness(1.5) contrast(2);
+        transform: scale(1.1);
+    }
+    50% {
+        filter: brightness(1.2) contrast(1.5);
+        transform: scale(1.05);
+    }
+    75% {
+        filter: brightness(1.5) contrast(2);
+        transform: scale(1.1);
+    }
+    100% {
+        filter: brightness(1) contrast(1);
+        transform: scale(1);
+    }
+}
