@@ -1,7 +1,9 @@
 # portfolio_iseladev
 Portafolio
 Mi Portafolio Personal
-Este es mi portafolio personal, desarrollado para mostrar mis habilidades y proyectos en desarrollo web. Aquí podrás encontrar información sobre mis experiencias, proyectos realizados y más sobre mi carrera profesional.
+
+Este es mi portaf![ASSETS](https://github.com/user-attachments/assets/523d3b4b-3dc6-42f9-a39b-d28ffbbc10ed)
+olio personal, desarrollado para mostrar mis habilidades y proyectos en desarrollo web. Aquí podrás encontrar información sobre mis experiencias, proyectos realizados y más sobre mi carrera profesional.
 
 Tecnologías utilizadas
 Este portafolio está construido utilizando las siguientes tecnologías:
